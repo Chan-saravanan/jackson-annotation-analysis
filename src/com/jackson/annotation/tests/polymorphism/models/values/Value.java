@@ -11,8 +11,6 @@ public interface Value<T>
 	@JsonCreator
 	public static <X> Value<X> getValueByCreator(X o)
 	{
-		System.out.println("Inside getValueByCreator"+o);
-		
 		return (o instanceof List) ? new VectorValue<>((List<X>) o) : new ScalarValue<>(o);
 	}
 }
