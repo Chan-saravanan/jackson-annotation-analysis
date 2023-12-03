@@ -3,6 +3,7 @@ package com.jackson.annotation.tests.polymorphism;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jackson.annotation.tests.Utils;
 import com.jackson.annotation.tests.polymorphism.commons.Constants;
+import com.jackson.annotation.tests.polymorphism.models.FilterDetail;
 import com.jackson.annotation.tests.polymorphism.models.FilterObject;
 
 public class Main 
@@ -18,6 +19,9 @@ public class Main
 		
 		FilterObject filter = Utils.getInstance(json, FilterObject.class, mapper);
 		
-		System.out.println(filter.getFilterQuery());
+		FilterDetail detail = filter.getFilterQuery();
+		
+		System.out.println("Filter Query : "+detail.getFilter());
+		System.out.println("Involved tables : "+detail.getTables());
 	}
 }

@@ -8,6 +8,7 @@ import com.jackson.annotation.tests.polymorphism.commons.Constants;
 public class FilterDetail 
 {
 	private Set<TableDetail> tables;
+	
 	private String filter;
 	
 	public FilterDetail()
@@ -26,6 +27,10 @@ public class FilterDetail
 	
 	public String getFilter() {
 		return filter;
+	}
+	
+	public Set<TableDetail> getTables() {
+		return tables;
 	}
 	
 	public class TableDetail
