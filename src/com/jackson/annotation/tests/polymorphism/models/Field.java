@@ -34,9 +34,7 @@ public enum Field
 	
 	private Field(String tableName, String tableAlias, String columnName, Function<Object, Object> dbValueTransformer)
 	{
-		this.tableName			= tableName;
-		this.tableAlias			= tableAlias;
-		this.columnName			= columnName;
+		this(tableName, tableAlias, columnName);
 		this.dbValueTransformer = dbValueTransformer;
 	}
 	

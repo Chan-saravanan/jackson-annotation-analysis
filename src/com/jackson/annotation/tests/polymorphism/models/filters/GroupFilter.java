@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.jackson.annotation.tests.polymorphism.commons.Constants;
 import com.jackson.annotation.tests.polymorphism.models.Connective;
+import com.jackson.annotation.tests.polymorphism.models.FilterDetail;
 
 public class GroupFilter implements Filter
 {
@@ -28,10 +29,10 @@ public class GroupFilter implements Filter
 	}
 	
 	@Override
-	public String getFilter() 
+	public String getFilter(FilterDetail filterDetail) 
 	{
 		String delimiter = " ".concat(getConnective().getConnective()).concat(" ");
 		
-		return filters.stream().map(Filter::getFilter).map(_value-> "(".concat(_value).concat(")")).collect(Collectors.joining(delimiter, "(", ")"));
+		return filters.stream().map(_filter-> _filter.getFilter(filterDetail)).map(_value-> "(".concat(_value).concat(")")).collect(Collectors.joining(delimiter, "(", ")"));
 	}
 }

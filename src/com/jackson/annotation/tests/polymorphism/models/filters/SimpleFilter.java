@@ -3,6 +3,7 @@ package com.jackson.annotation.tests.polymorphism.models.filters;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.jackson.annotation.tests.polymorphism.commons.Constants;
 import com.jackson.annotation.tests.polymorphism.models.Field;
+import com.jackson.annotation.tests.polymorphism.models.FilterDetail;
 import com.jackson.annotation.tests.polymorphism.models.Operator;
 import com.jackson.annotation.tests.polymorphism.models.values.Value;
 
@@ -41,11 +42,12 @@ public class SimpleFilter<T> implements Filter
 	}
 	
 	@Override
-	public String getFilter() 
+	public String getFilter(FilterDetail filterDetail) 
 	{
+		filterDetail.addDetail(field.getTableName(), field.getTableAlias());
+		
 		Object object			= value.getValue();
 		Object transformedValue	= operator.applyTransformer(object, field::getDBTransformedValue);
-		
 		String _operator		= operator.getOperator();
 		
 		return field.getColumnName()+" "+_operator+" "+transformedValue;

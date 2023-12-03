@@ -2,6 +2,10 @@ package com.jackson.annotation.tests.polymorphism.commons;
 
 public class Constants 
 {
+	public static final String SEPARATOR_DOT			= ".";
+	public static final String SEPARATOR_UNDERSCORE		= "_";
+	public static final String SEPARATOR_SPACE			= " ";
+	
 	public static final String OPERATOR_EQUAL			= "=";
 	public static final String OPERATOR_NOT_EQUAL		= "!=";
 	public static final String OPERATOR_LESS_EQUAL		= "<=";

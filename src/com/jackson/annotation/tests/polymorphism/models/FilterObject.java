@@ -16,8 +16,14 @@ public class FilterObject
 		return conditionalFilter;
 	}
 	
-	public String getFilterQuery()
+	public FilterDetail getFilterQuery()
 	{
-		return conditionalFilter.getFilter();
+		FilterDetail filterDetail = new FilterDetail();
+		
+		String query = conditionalFilter.getFilter(filterDetail);
+		 
+		filterDetail.setFilter(query);
+		
+		return  filterDetail;
 	}
 }
